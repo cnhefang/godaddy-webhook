@@ -166,7 +166,7 @@ func (c *godaddyDNSSolver) Present(ch *v1alpha1.ChallengeRequest) error {
 	if err := c.validate(&cfg); err != nil {
 		return err
 	}
-	if cfg.AuthAPIKey == "" || cfg.AuthAPIKey == AuthAPISecret {
+	if cfg.AuthAPIKey == "" || cfg.AuthAPISecret == "" {
 		// Extract the Godaddy Api and Secret from the K8s Secret
 		// and assign it the AuthAPIKey and AuthAPISecret of the Config
 		if err := c.extractApiTokenFromSecret(&cfg, ch); err != nil {
