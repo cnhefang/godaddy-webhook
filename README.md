@@ -191,7 +191,7 @@ own options in order for tests to pass.
 - Verify first that you have access to a docker server running on your kubernetes or openshift cluster ;-)
 - Next, build the container image using the Dockerfile included within this project
 ```bash
-docker build -t quay.io/snowdrop/cert-manager-webhook-godaddy .
+docker build -t quay.io/cnhefang/cert-manager-webhook-godaddy .
 ```
 - Tag and push it
 ```bash

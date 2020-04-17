@@ -3,7 +3,7 @@
 GITHUB_API_TOKEN=$1
 CURRENT_TAG=$2
 
-OWNER="snowdrop"
+OWNER="cnhefang"
 REPO="webhook-godaddy"
 AUTH="Authorization: token $GITHUB_API_TOKEN"
 GH_API="https://api.github.com"

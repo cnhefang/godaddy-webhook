@@ -225,7 +225,7 @@ spec:
         env:
         - name: GROUP_NAME
           value: acme.mycompany.com
-        image: quay.io/snowdrop/cert-manager-webhook-godaddy:latest
+        image: quay.io/cnhefang/cert-manager-webhook-godaddy:latest
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3

@@ -1,5 +1,5 @@
-VERSION        ?= 0.0.666
-IMAGE_NAME     := "quay.io/snowdrop/cert-manager-webhook-godaddy"
+VERSION        ?= 0.1.0
+IMAGE_NAME     := "quay.io/cnhefang/cert-manager-webhook-godaddy"
 IMAGE_TAG      := "latest"
 TEST_ZONE_NAME ?= example.com.
 

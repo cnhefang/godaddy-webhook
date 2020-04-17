@@ -1,4 +1,4 @@
-module github.com/snowdrop/godaddy-webhook
+module github.com/cnhefang/godaddy-webhook
 
 go 1.13
 

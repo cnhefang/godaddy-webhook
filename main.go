@@ -14,7 +14,7 @@ import (
 
 	apiext "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1"
 	metaV1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-    "k8s.io/client-go/kubernetes"
+	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 
 	"github.com/jetstack/cert-manager/pkg/acme/webhook/apis/acme/v1alpha1"
@@ -87,7 +87,7 @@ type godaddyDNSProviderConfig struct {
 	Production    bool   `json:"production"`
 
 	// +optional. The TTL of the TXT record used for the DNS challenge
-	TTL           int    `json:"ttl"`
+	TTL int `json:"ttl"`
 	// +optional.  API request timeout
 	HttpTimeout int `json:"timeout"`
 	// +optional.  Maximum waiting time for DNS propagation
@@ -166,11 +166,12 @@ func (c *godaddyDNSSolver) Present(ch *v1alpha1.ChallengeRequest) error {
 	if err := c.validate(&cfg); err != nil {
 		return err
 	}
-
-	// Extract the Godaddy Api and Secret from the K8s Secret
-	// and assign it the AuthAPIKey and AuthAPISecret of the Config
-	if err := c.extractApiTokenFromSecret(&cfg, ch); err != nil {
-		return err
+	if cfg.AuthAPIKey == "" || cfg.AuthAPIKey == AuthAPISecret {
+		// Extract the Godaddy Api and Secret from the K8s Secret
+		// and assign it the AuthAPIKey and AuthAPISecret of the Config
+		if err := c.extractApiTokenFromSecret(&cfg, ch); err != nil {
+			return err
+		}
 	}
 
 	baseURL := c.apiURL(cfg)
